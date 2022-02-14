@@ -52,6 +52,12 @@ export default class App extends React.Component{
       case (nextQuestionId === 'init'):
         this.displayNextQuestion(nextQuestionId)
         break
+      case (/^https:*/.test(nextQuestionId)):
+        const a = document.createElement('a')
+        a.href = nextQuestionId
+        a.target = '_blank'
+        a.click()
+        break
       default:
         await wait(0.1)
         const chats = this.state.chats
@@ -73,6 +79,13 @@ export default class App extends React.Component{
   componentDidMount(){
     const initAnswer = ""
     this.selectAnswer(initAnswer, this.state.currentId)
+  }
+
+  componentDidUpdate(prevProps, preState, snapshot){
+    const scrollArea = document.getElementById('scroll-area')
+    if(scrollArea){
+      scrollArea.scrollTop = scrollArea.scrollHeight
+    }
   }
 
   render() {
