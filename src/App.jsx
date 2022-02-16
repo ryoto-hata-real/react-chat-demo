@@ -1,7 +1,7 @@
 import React from 'react'
 import defaultDataset from './dataset';
 import './assets/styles/style.css';
-import { AnswersList, Chats } from './components';
+import { AnswersList, Chats, FormDialog } from './components';
 
 const wait = (sec) => {
   return new Promise((resolve, reject) => {
@@ -21,6 +21,15 @@ export default class App extends React.Component{
       open: false
     }
     this.selectAnswer = this.selectAnswer.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+    this.handleClickOpen = this.handleClickOpen.bind(this)
+  }
+
+  handleClickOpen = () => {
+    this.setState({open:true})
+  }
+  handleClose = () => {
+    this.setState({open:false})
   }
 
   //初期値を入れる
@@ -58,6 +67,11 @@ export default class App extends React.Component{
         a.target = '_blank'
         a.click()
         break
+      case (nextQuestionId === 'contact'):
+        const contact = <FormDialog open={this.state.open} handleClose={this.handleClose} handleClickOpen={this.handleClickOpen}/>
+        console.log(contact)
+        contact.Button.click()
+        break
       default:
         await wait(0.1)
         const chats = this.state.chats
@@ -94,6 +108,7 @@ export default class App extends React.Component{
         <div className='c-box'>
           <Chats chats={this.state.chats}/>
           <AnswersList answers={this.state.answers} select={this.selectAnswer}/>
+          <FormDialog open={this.state.open} handleClose={this.handleClose} handleClickOpen={this.handleClickOpen}/>
         </div>
       </section>
     );
