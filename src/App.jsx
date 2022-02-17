@@ -68,8 +68,7 @@ export default class App extends React.Component{
         a.click()
         break
       case (nextQuestionId === 'contact'):
-        const contact = <FormDialog open={this.state.open} handleClose={this.handleClose} handleClickOpen={this.handleClickOpen}/>
-        contact.Button.click()
+        this.handleClickOpen()
         break
       default:
         await wait(0.1)
