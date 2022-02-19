@@ -1,0 +1,85 @@
+{
+    "init": {
+        "answers": [
+            {"content": "仕事を依頼したい", "nextId": "job_offer"},
+            {"content": "プロフィールを知りたい", "nextId": "profile"},
+            {"content": "将来の目標を知りたい", "nextId": "dream"},
+            {"content": "技術スタックを知りたい", "nextId": "skills"}
+        ],
+        "question": "こんにちは！はたりょうとです。ご用件はなんでしょうか？"
+    },
+    "job_offer": {
+        "answers": [
+            {"content": "Webサイトを制作してほしい", "nextId": "website"},
+            {"content": "Webアプリを開発してほしい", "nextId": "webapp"},
+            {"content": "自動化ツールを作ってほしい", "nextId": "automation_tool"},
+            {"content": "その他", "nextId": "other_jobs"}
+        ],
+        "question": "どのようなお仕事でしょうか？"
+    },
+    "website": {
+        "answers": [
+            {"content": "問い合わせる", "nextId": "contact"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "Webサイト細作についてですね。コチラからお問い合わせできます。"
+    },
+    "webapp": {
+        "answers": [
+            {"content": "問い合わせる", "nextId": "contact"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "Webアプリ開発についてですね。コチラからお問い合わせできます。"
+    },
+    "automation_tool": {
+        "answers": [
+            {"content": "問い合わせる", "nextId": "contact"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "自動化ツール開発についてですね。コチラからお問い合わせできます。"
+    },
+    "other_jobs": {
+        "answers": [
+            {"content": "問い合わせる", "nextId": "contact"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "その他についてですね。コチラからお問い合わせできます。"
+    },
+    "dream": {
+        "answers": [
+            {"content": "夢について語り合いたい（お問い合わせ）", "nextId": "contact"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "「日本人全員が自分の仕事に誇りを持って働いている社会を作る」ことです。"
+    },
+    "profile": {
+        "answers": [
+            {"content": "どんな仕事をしているの？", "nextId": "activity"},
+            {"content": "キャリアの軸は？", "nextId": "career"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "はた りょうとと申します。エンジニアをしております。趣味は読書と筋トレで、将来の夢はゴリマッチョエンジニアになることです。"
+    },
+    "career": {
+        "answers": [
+            {"content": "どんな企業で働きたい？", "nextId": "company"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "技術を極めるというよりは、技術を使っていかに世の中に価値を届けるか、喜んでもらえるサービスを作るかにフォーカスしています。"
+    },
+    "activity": {
+        "answers": [
+            {"content": "Djangoで作ったアプリを見てみる", "nextId": "https://www.it-mitsukaru.com/"},
+            {"content": "Githubを見てみる", "nextId": "https://github.com/ryoto-hata-real"},
+            {"content": "Zennを見てみる", "nextId": "https://zenn.dev/ryo_t"}
+        ],
+        "question": "エンジニアとして働いています。業務外では、DjangoやReact、AWS,Firebaseなど、幅広い技術を学んでいます。"
+    },
+    "company": {
+        "answers": [
+            {"content": "お問い合わせ", "nextId": "contact"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "企業のビジョンへの共感と、自分自身のスキルアップの２軸が達成できそうな企業にて働きたいです。"
+    }
+}

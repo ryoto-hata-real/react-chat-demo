@@ -29,6 +29,29 @@ export default class FromDialog extends React.Component{
         this.setState({description:event.target.value})
     }
 
+    submitForm = () => {
+        const name = this.state.name
+        const email = this.state.email
+        const description = this.state.description
+
+        const payload = {
+            text: 'お問い合わせがありました。' +
+             '名前：' + name +
+              'Email: ' + email +
+               '内容: ' + description
+        }
+        const url = 'https://hooks.slack.com/services/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'
+
+        fetch(url, {
+            method:'POST',
+            body: JSON.stringify(payload)
+        }).then(()=>{
+            alert('ありがとうございます。送信が完了しました。')
+            this.setState({name:"",email:"",description:""})
+            return this.props.handleClose
+        })
+    }
+
     render(){
         
           return (
@@ -69,7 +92,7 @@ export default class FromDialog extends React.Component{
                 </DialogContent>
                 <DialogActions>
                   <Button onClick={this.props.handleClose}>キャンセル</Button>
-                  <Button onClick={this.props.handleClose}>送信</Button>
+                  <Button onClick={this.submitForm}>送信</Button>
                 </DialogActions>
               </Dialog>
             </div>
